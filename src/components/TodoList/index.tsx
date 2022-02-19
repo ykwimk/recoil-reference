@@ -1,7 +1,13 @@
 import React from 'react';
+import TodoListItem from '../TodoListItem';
+import { TodoListWrapper } from './TodoList.style';
 
 const TodoList = () => {
-  return <div>todolist</div>;
+  return (
+    <TodoListWrapper>
+      <TodoListItem />
+    </TodoListWrapper>
+  );
 };
 
 export default TodoList;
