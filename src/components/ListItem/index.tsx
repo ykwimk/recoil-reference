@@ -1,8 +1,12 @@
 import React from 'react';
 import { ListItemWrapper } from './ListItem.style';
 
-const ListItem = () => {
-  return <ListItemWrapper>listItem</ListItemWrapper>;
+interface ListItemPropsType {
+  name: string;
+}
+
+const ListItem = ({ name }: ListItemPropsType) => {
+  return <ListItemWrapper>{name}</ListItemWrapper>;
 };
 
 export default ListItem;

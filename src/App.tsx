@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
@@ -9,13 +9,15 @@ import { RecoilRoot } from 'recoil';
 function App() {
   return (
     <RecoilRoot>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/todo" element={<Todo />} />
-        </Routes>
-      </BrowserRouter>
+      <Suspense fallback={<div>loading...</div>}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/todo" element={<Todo />} />
+          </Routes>
+        </BrowserRouter>
+      </Suspense>
     </RecoilRoot>
   );
 }
