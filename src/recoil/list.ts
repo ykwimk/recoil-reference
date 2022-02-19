@@ -1,11 +1,11 @@
-import { getList } from './../api/list';
-import { selector } from 'recoil';
+import { getList, GetListParamsType } from './../api/list';
+import { selectorFamily } from 'recoil';
 
-export const getListSelector = selector<any>({
+export const getListSelector = selectorFamily<any, any>({
   key: 'useListSelector',
-  get: async () => {
+  get: (params: GetListParamsType) => async () => {
     try {
-      const response = await getList();
+      const response = await getList(params);
       return response.data;
     } catch (e) {
       console.error(e);
