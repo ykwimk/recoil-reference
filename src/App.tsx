@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Todo from './pages/Todo';
-import { RecoilRoot } from 'recoil';
 
 function App() {
   return (

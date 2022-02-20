@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export interface GetListParamsType {
-  perPage?: string;
-  page?: string;
+  perPage?: number;
+  page?: number;
 }
 
 export const getList = ({ perPage, page }: GetListParamsType) => {
