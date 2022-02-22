@@ -5,7 +5,8 @@ import ListItem from '../ListItem';
 import { ListWrapper } from './List.style';
 
 const List = () => {
-  const listLoadable = useRecoilValueLoadable(getListSelector);
+  const params = { perPage: 10, page: 1 };
+  const listLoadable = useRecoilValueLoadable(getListSelector(params));
 
   switch (listLoadable.state) {
     case 'hasValue': {

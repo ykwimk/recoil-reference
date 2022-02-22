@@ -1,16 +1,17 @@
-import { atom, selector } from 'recoil';
-import axios from 'axios';
+import { atom, selectorFamily } from 'recoil';
+import { getList, GetListParamsType } from '../api/list';
 
 export const getListState = atom<any[]>({
   key: 'getListState',
   default: [],
 });
 
-export const getListSelector = selector({
+export const getListSelector = selectorFamily({
   key: 'getListSelector',
-  get: async () => {
+  get: (params) => async () => {
+    if (!params) return null;
     try {
-      const { data } = await axios.get('https://api.punkapi.com/v2/beers');
+      const { data } = await getList(params as GetListParamsType);
       return data;
     } catch (e) {
       console.error(e);
